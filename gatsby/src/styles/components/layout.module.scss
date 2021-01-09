@@ -1,0 +1,17 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+body {
+    background: $color-m-20;
+}
+
+.container {
+    background-color: $color-m-100;
+    width: $width-container;
+    padding: $gutter-size;
+    margin: 0 auto;
+    margin-top: calc(#{$height-header} + #{$gutter-size});
+    position: relative;
+    border-radius: $border-radius-container;
+    // @include flexbox($flex-direction: column, $justify-content: space-between);
+}

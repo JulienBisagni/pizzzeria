@@ -1,0 +1,33 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+@import "../utils/placeholder";
+
+.container {
+    height: $height-card-value;
+    width: $width-card-value;
+    padding: $gutter-size/1.5 $gutter-size/2;
+    background-color: $color-m-100;
+    box-shadow: $box-shadow-italia;
+    color: $color-t-100;
+    overflow: hidden;
+    h3 {
+        margin-bottom: $gutter-size/8;
+        text-transform: uppercase;
+    }
+    p {
+        margin-bottom: 0;
+        font-weight: $font-weight-normal;
+    }
+    span {
+        color: $color-p-100;
+        font-weight: $font-weight-bold;
+    }
+    &:hover {
+        box-shadow: none;
+        background-color: $color-p-100;
+        color: $color-m-100;
+        span {
+            color: $color-m-100;
+        }
+    }
+}

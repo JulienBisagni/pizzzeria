@@ -1,0 +1,19 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.container {
+    font-size: $font-size-paragraph;
+    position: fixed;
+    bottom: $gutter-size;
+    @include flexbox();
+    width: 100%;
+}
+
+.buttons {
+    @include flexbox();
+    li {
+        &:not(:last-child) {
+            margin-right: $gutter-size / 2;
+        }
+    }
+}

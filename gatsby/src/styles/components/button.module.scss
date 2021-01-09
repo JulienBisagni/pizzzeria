@@ -1,0 +1,49 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.container {
+    a,
+    button {
+        pointer-events: all;
+        cursor: pointer;
+        @include flexbox();
+        padding: $gutter-size/2 $gutter-size;
+        box-shadow: $box-shadow-button;
+        border-radius: $border-radius-button;
+        width: $width-button;
+        &:active {
+            transform: translateY(1px);
+        }
+        &:hover {
+            @include opacity();
+        }
+    }
+}
+
+.pomodoro {
+    a,
+    button {
+        background-color: $color-p-100;
+        color: $color-m-100;
+    }
+}
+
+.mozzarella {
+    a,
+    button {
+        background-color: $color-m-100;
+        color: $color-p-100;
+    }
+}
+
+.insalata {
+    a,
+    button {
+        background-color: $color-i-100;
+        color: $color-m-100;
+    }
+}
+
+.icon {
+    margin-left: $gutter-size/4;
+}

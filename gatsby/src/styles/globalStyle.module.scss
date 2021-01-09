@@ -1,0 +1,13 @@
+@import "./utils/variables";
+
+.insalata {
+    color: $color-i-100;
+}
+.pomodoro {
+    color: $color-p-100;
+}
+
+.mozzarella {
+    color: $color-m-100;
+    -webkit-text-stroke: 1px $color-t-100;
+}

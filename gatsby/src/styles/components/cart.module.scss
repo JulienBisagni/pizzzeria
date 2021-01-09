@@ -1,0 +1,20 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.container {
+    position: relative;
+}
+
+.number {
+    @include flexbox();
+    position: absolute;
+    top: 0;
+    right: -0.5rem;
+    width: 2rem;
+    height: 2rem;
+    padding: $gutter-size/6;
+    color: $color-m-100;
+    background-color: $color-p-100;
+    box-shadow: $box-shadow-button;
+    border-radius: $border-radius-button;
+}

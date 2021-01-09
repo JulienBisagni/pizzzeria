@@ -1,0 +1,51 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.container {
+    padding: $gutter-size/2;
+    padding-right: 0;
+    margin-right: $gutter-size * 2;
+    border-radius: 50%;
+    border: 10px solid white;
+    box-shadow: $box-shadow-container;
+    width: $width-card-value;
+    height: $height-card-value;
+    @include flexbox($flex-direction: column, $align-items: baseline);
+    &:hover {
+        background: url("../../images/pizzzeria-background-1.jpg");
+        background-size: cover;
+        .content {
+            display: none;
+        }
+    }
+    &:not(:last-child) {
+        margin-right: $gutter-size * 2;
+    }
+    svg {
+        margin: 0;
+    }
+    a {
+        width: $font-size-icon;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    h2 {
+        margin: 0;
+    }
+
+    .title {
+        @include flexbox($justify-content: flex-start);
+        position: relative;
+        text-transform: uppercase;
+        color: $color-t-100;
+    }
+    .toppings {
+        margin-bottom: $gutter-size;
+        color: $color-t-100;
+        font-size: $font-size-caption;
+    }
+    .price {
+        color: $color-t-100;
+    }
+}
