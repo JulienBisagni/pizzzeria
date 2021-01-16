@@ -2,8 +2,6 @@
 @import "../utils/mixins";
 
 .container {
-    background: url("../../images/pizzzeria-background-1.jpg");
-    background-size: cover;
     cursor: pointer;
     border-radius: 50%;
     border: 0.4rem solid $color-crust;
@@ -11,9 +9,7 @@
     width: $width-pizza-header;
     height: $height-pizza-header;
     outline: none;
-    &:active {
-        transform: translateY(1px);
-    }
+
     &:not(:last-child) {
         margin-right: $gutter-size/4;
     }

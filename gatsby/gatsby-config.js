@@ -7,6 +7,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-scroll-reveal`,
     `gatsby-plugin-sharp`,
+    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-plugin-react-svg",
       options: {

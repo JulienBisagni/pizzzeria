@@ -11,3 +11,12 @@
     color: $color-m-100;
     -webkit-text-stroke: 1px $color-t-100;
 }
+
+.clickable-element {
+    &:active {
+        transform: translateY(1px);
+    }
+    &:hover {
+        opacity: $opacity-hover;
+    }
+}
