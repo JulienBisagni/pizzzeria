@@ -1,0 +1,43 @@
+.cart {
+    transition: opacity $anim-time * 3 $anim-curve;
+    position: relative;
+    pointer-events: none;
+    padding: $gutter-size;
+    background-color: white;
+    box-shadow: $box-shadow-container;
+    height: 100vh;
+    width: $width-cart;
+    position: absolute;
+    right: -$gutter-size;
+    top: 0;
+    border-radius: $border-radius-container;
+    pointer-events: none;
+    opacity: 0;
+    &__quantity {
+        @include flexbox();
+        position: absolute;
+        top: 0;
+        right: -0.5rem;
+        width: 2rem;
+        height: 2rem;
+        padding: $gutter-size/6;
+        color: $color-m-100;
+        background-color: $color-p-100;
+        box-shadow: $box-shadow-button;
+        border-radius: $border-radius-button;
+    }
+    &__title {
+        font-size: $font-size-subtitle;
+    }
+    &__icon {
+        @include position-absolute($gutter-size, $gutter-size);
+    }
+    &__container {
+        position: relative;
+    }
+
+    &.--active {
+        pointer-events: all;
+        opacity: $opacity-light;
+    }
+}

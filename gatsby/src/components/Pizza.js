@@ -1,9 +1,5 @@
 import React from "react"
-import loadable from "@loadable/component"
-
-import styles from "../styles/components/pizza.module.scss"
 import { graphql, Link, useStaticQuery } from "gatsby"
-const Logo = loadable(() => import("./Logo"))
 
 export default function Pizza({ title, toppings, price, slug = "" }) {
   const data = useStaticQuery(graphql`
@@ -22,15 +18,10 @@ export default function Pizza({ title, toppings, price, slug = "" }) {
 
   return (
     <Link to={`/${slug}`}>
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <div className={styles.title}>
-            <h2>{title}</h2>
-          </div>
-          <p className={styles.toppings}>{toppings}</p>
-
-          <p className={styles.price}>{price}€</p>
-        </div>
+      <div className="pizza">
+        <h2 className="pizza__title">{title}</h2>
+        <p className="pizza__toppings">{toppings}</p>
+        <p className="pizza__price">{price}€</p>
       </div>
     </Link>
   )

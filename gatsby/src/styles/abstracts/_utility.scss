@@ -1,0 +1,29 @@
+// Margin and padding
+$spaceamounts: (-3, -2, -1, 0, 1, 2, 3, 4, 5, 6);
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceamounts {
+    @each $side in $sides {
+        .m-#{str-slice($side, 0, 1)}-#{$space} {
+            margin-#{$side}: $space * $gutter-size !important;
+        }
+
+        .p-#{str-slice($side, 0, 1)}-#{$space} {
+            padding-#{$side}: $space * $gutter-size !important;
+        }
+    }
+}
+
+@each $space in $spaceamounts {
+    .m-#{$space} {
+        margin: $space * $gutter-size !important;
+    }
+
+    .p-#{$space} {
+        padding: $space * $gutter-size !important;
+    }
+}
+
+.m-b-05 {
+    margin-bottom: $gutter-size/2 !important;
+}

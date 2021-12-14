@@ -1,0 +1,53 @@
+Button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-family: $font-family-body;
+}
+
+.btn {
+    @include transition();
+    @include flexbox();
+    position: relative;
+    padding: $gutter-button-padding;
+    font-size: $font-size-button;
+    color: $color-text;
+    border-radius: $border-radius-button;
+    text-align: center;
+    &:hover {
+        @include opacity();
+    }
+    &:active {
+        transform: translateX(1px);
+    }
+
+    &.--pomodoro {
+        background-color: $color-p-100;
+        color: $color-m-100;
+    }
+
+    &.--mozarella {
+        background-color: $color-m-100;
+        color: $color-p-100;
+    }
+    &.--insalata {
+        background-color: $color-i-100;
+        color: $color-m-100;
+    }
+    &.--tartufo {
+        background-color: $color-t-100;
+        color: $color-m-100;
+    }
+
+    &.--text {
+        padding: 0;
+        font-weight: $font-weight-bold;
+        font-family: $font-family-headers;
+        font-size: $font-size-body;
+    }
+
+    .icon {
+        margin-left: $gutter-size/4;
+    }
+}

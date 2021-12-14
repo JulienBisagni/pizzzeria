@@ -1,26 +1,19 @@
 import React, { useEffect, useState } from "react"
 import loadable from "@loadable/component"
 
-import styles from "../styles/components/layout.module.scss"
+import { useScroll } from "./hooks/useScroll"
 
-const Nav = loadable(() => import("./Nav"))
+const Navbar = loadable(() => import("./Navbar"))
 const Header = loadable(() => import("./Header"))
 
 export default function Layout({ children }) {
-  // DETECT USER SCROLLING
-  const [scroll, setScroll] = useState(false)
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 50)
-    })
-  }, [])
+  const { scroll } = useScroll()
   return (
-    <>
-      <Header userHasScroll={scroll} />
-      <div className={styles.container}>
+    <div className="wrapper">
+      <div className="main">
+        <Navbar />
         <div>{children}</div>
       </div>
-      <Nav />
-    </>
+    </div>
   )
 }

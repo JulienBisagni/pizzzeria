@@ -1,0 +1,10 @@
+.header {
+    @include flexbox($justify-content: space-between);
+    padding-bottom: $gutter-size/2;
+    border-bottom: $border;
+    width: 100%;
+    &__pizzas {
+        @include flexbox();
+        @include margin-right-to-all-children-but-last-one();
+    }
+}

@@ -1,0 +1,109 @@
+@mixin clearfix() {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+@mixin flexbox($display: flex, $align-items: center, $justify-content: center, $flex-direction: row) {
+    display: $display;
+    align-items: $align-items;
+    justify-content: $justify-content;
+    flex-direction: $flex-direction;
+}
+
+@mixin center-element-horizontally($position: absolute, $bottom: 0) {
+    position: $position;
+    bottom: $bottom;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin grid($grid-gap: $gutter-size/2, $align-items: center, $justify-items: baseline) {
+    display: grid;
+    grid-gap: $grid-gap;
+    align-items: $align-items;
+    justify-items: $justify-items;
+}
+
+@mixin respond-to($media) {
+    @if $media == phone {
+        @media only screen and (max-width: $screen-xs) {
+            @content;
+        }
+    } @else if $media == not-phone {
+        @media only screen and (min-width: $screen-xs + 1) {
+            @content;
+        }
+    } @else if $media == small {
+        @media only screen and (max-width: $screen-small) {
+            @content;
+        }
+    } @else if $media == not-small {
+        @media only screen and (min-width: $screen-small + 1) {
+            @content;
+        }
+    } @else if $media == medium {
+        @media only screen and (max-width: $screen-medium) {
+            @content;
+        }
+    } @else if $media == not-medium {
+        @media only screen and (min-width: $screen-medium + 1) {
+            @content;
+        }
+    } @else if $media == not-large {
+        @media only screen and (max-width: $screen-large) {
+            @content;
+        }
+    } @else if $media == large {
+        @media only screen and (min-width: $screen-large + 1) {
+            @content;
+        }
+    } @else if $media == xl {
+        @media only screen and (min-width: $screen-xl + 1) {
+            @content;
+        }
+    }
+}
+
+@mixin center-element($position: fixed, $top: 50%, $left: 50%, $bottom: unset, $right: unset) {
+    position: $position;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+    transform: translate(-50%, -50%);
+}
+
+@mixin transition($animation: all) {
+    transition: $animation $anim-time $anim-curve;
+}
+
+@mixin opacity($opacity: $opacity-light) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin position-absolute($top: unset, $right: unset, $bottom: unset, $left: unset) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+%transition {
+    transition: all $anim-time $anim-curve;
+}
+
+@mixin margin-right-to-all-children-but-last-one($margin: $gutter-size/2) {
+    > *:not(:last-child) {
+        margin-right: $margin;
+        @include respond-to(phone) {
+            margin-right: 0;
+            margin-top: $margin;
+        }
+    }
+}

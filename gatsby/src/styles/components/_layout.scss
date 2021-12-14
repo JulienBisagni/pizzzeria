@@ -1,0 +1,21 @@
+.wrapper {
+    @extend %center;
+    @include clearfix;
+    padding: 0 $gutter-size;
+    max-width: $width-container;
+    position: relative;
+    width: 100%;
+
+    @include respond-to(phone) {
+        padding: 0 $gutter-size/2;
+    }
+}
+
+.main {
+    @include flexbox($flex-direction: column, $justify-content: space-between);
+    min-height: 90vh;
+    margin: $gutter-size 0;
+    padding: $gutter-size;
+    box-shadow: $box-shadow-container;
+    border-radius: $border-radius-container;
+}

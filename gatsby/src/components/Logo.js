@@ -1,19 +1,17 @@
 import React from "react"
 import { Link } from "gatsby"
+import loadable from "@loadable/component"
 
-import PizzzeriaLogo from "../images/pizzzeria.inline.svg"
+import PizzzeriaLogo from "../images/pizzzeria-logo.jpg"
 
-import styles from "../styles/components/logo.module.scss"
-import gStyles from "../styles/globalStyle.module.scss"
+const Image = loadable(() => import("./Image"))
 
 export default function Logo() {
   return (
-    <Link to="/" className={styles.container}>
-      <h1 className={styles.title}>
-        <span className={gStyles.insalata}>z</span>
-        <span className={gStyles.mozzarella}>z</span>
-        <span className={gStyles.pomodoro}>z</span>
-      </h1>
-    </Link>
+    <div className="logo">
+      <Link to="/">
+        <Image img={PizzzeriaLogo} />
+      </Link>
+    </div>
   )
 }

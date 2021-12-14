@@ -1,26 +1,36 @@
-import React, { useContext, useState } from "react"
-import { IoPizzaOutline } from "react-icons/io5"
-import styles from "../styles/components/cart.module.scss"
+import React, { useEffect } from "react"
+import loadable from "@loadable/component"
 
-import { CartContext } from "../contexts/CartContext"
+import { useCart } from "./hooks/useCart"
+
+const Icon = loadable(() => import("./Icon"))
 
 export default function Cart() {
-  const { cartState, removePizzaFromCart } = useContext(CartContext)
-  const [showPizza, setShowPizza] = useState(false)
+  const {
+    showCart,
+    openCart,
+    closeCart,
+    cartState,
+    removePizzaFromCart,
+  } = useCart()
+
+  useEffect(() => {
+    console.log(showCart)
+  }, [showCart])
 
   return (
-    <div className={styles.container}>
-      <button onClick={() => setShowPizza(true)} className={styles.cartLength}>
-        <IoPizzaOutline className={styles.icon} />
-        <p className={styles.number}>{cartState.pizzas.length}</p>
+    <div className="cart__container">
+      <button onClick={openCart} className="">
+        <Icon icon="pizza_outline" />
+        <p className="cart__quantity">{cartState.quantity}</p>
       </button>
-      <div className={`${styles.cart} ${showPizza ? styles.cartActive : ""}`}>
-        <button type="button" onClick={() => setShowPizza(false)}>
-          X
+      <div className={`cart ${showCart ? "--active" : ""}`}>
+        <button type="button" onClick={closeCart}>
+          <Icon icon="close" additionalClassName="cart__icon" />
         </button>
-        <h3 className={styles.cart__title}>Votre commande</h3>
+        <h3 className="cart__title">Votre commande</h3>
         {cartState?.pizzas?.map(pizza => (
-          <div key={pizza.id} className="">
+          <div key={pizza.id}>
             {pizza.title} {pizza.price}
             <button type="button" onClick={() => removePizzaFromCart(pizza)}>
               X

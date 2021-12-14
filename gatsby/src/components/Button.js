@@ -1,36 +1,31 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import styles from "../styles/components/button.module.scss"
-
 export default function Button({
   to,
   href,
-  color = "pomodoro",
+  version = "pomodoro",
   label,
   children,
+  onClick,
   ...props
 }) {
+  const buttonStyle = `btn --${version}`
   return (
-    <div
-      className={`${styles.container} ${
-        color === "primary" ? styles.primary : styles[color]
-      }`}
-    >
+    <>
       {to ? (
-        <Link to={to}>
-          {label} {children}
+        <Link to={to} className={buttonStyle}>
+          {children || label}
         </Link>
       ) : href ? (
-        <a target="_blank" rel="noreferrer" href={href}>
-          {label} {children}
+        <a target="_blank" rel="noreferrer" href={href} className={buttonStyle}>
+          {children || label}
         </a>
       ) : (
-        <button type="button">
-          {label}
-          {children}
+        <button onClick={onClick} type="button" className={buttonStyle}>
+          {children || label}
         </button>
       )}
-    </div>
+    </>
   )
 }

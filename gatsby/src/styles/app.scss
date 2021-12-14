@@ -1,0 +1,20 @@
+//Main sass config files
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/placeholders";
+@import "abstracts/utility";
+
+// UTILS
+@import "utils/global";
+
+// COMPONENTS
+@import "components/button";
+@import "components/cart";
+@import "components/layout";
+@import "components/logo";
+@import "components/navbar";
+@import "components/pizza";
+@import "components/pizzas";
+@import "components/value";
+@import "components/values";
+@import "components/header";
